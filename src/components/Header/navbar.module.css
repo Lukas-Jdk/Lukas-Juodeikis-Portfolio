@@ -1,0 +1,218 @@
+/* src/app/navbar.css */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+}
+
+/* FULL WIDTH BACKGROUND */
+.bar {
+  width: 100%;
+  height: 66px;
+  background: rgba(0, 0, 0, 0.22);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 22px 70px rgba(0,0,0,0.35);
+}
+
+/* CENTERED CONTENT */
+.inner {
+  max-width: 1115px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+   font-family: var(--font-mono);
+  color: rgba(255,255,255,0.92);
+}
+
+.dot {
+  color: rgba(var(--accent-rgb), 1);
+}
+
+.nav {
+  display: flex;
+  gap: 22px;
+}
+
+.link {
+
+ 
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+
+}
+
+.link:hover {
+  color: rgb(0, 204, 255);
+  
+}
+
+.cta {
+  font-size: 13px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.88);
+}
+
+/* ===== BURGER BASE ===== */
+.burger {
+  display: none;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* lines */
+.burger span {
+  position: absolute;
+  width: 18px;              /* trumpesnės linijos */
+  height: 2px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 999px;
+  transition:
+    transform 220ms ease,
+    opacity 180ms ease,
+    width 220ms ease;
+}
+
+/* pozicijos */
+.burger span:nth-child(1) {
+  transform: translateY(-6px);
+}
+.burger span:nth-child(2) {
+  transform: translateY(0);
+}
+.burger span:nth-child(3) {
+  transform: translateY(6px);
+}
+
+/* ===== OPEN STATE → X ===== */
+.open span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.open span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* ===== MOBILE ONLY ===== */
+@media (max-width: 899px) {
+  .burger {
+    display: inline-flex;
+  }
+}
+
+
+/* MOBILE */
+@media (max-width: 899px) {
+  .nav, .cta {
+    display: none;
+  }
+  .burger {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+/* MONILE OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: stretch; /* panel per visą aukštį */
+  justify-content: flex-start; /* kairė pusė */
+}
+
+.panel {
+  width: 250px;         /* <- tavo norimas plotis */
+  height: 100vh;        /* <- per visą ekrano aukštį */
+  max-width: none;
+  margin: 0;
+  border-radius: 0;     /* kad gražiai priglustų prie krašto */
+
+  background: rgba(6, 10, 18, 0.92);
+  border-right: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 30px 0 90px rgba(0, 0, 0, 0.55);
+
+  padding: 14px 10px;
+
+  animation: slideInLeft 180ms ease-out;
+}
+
+.panelTop {
+  display: flex;
+  justify-content:center;
+}
+/* MOBILE PANEL */
+.panelTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.92);  
+  text-align: center;
+   font-family: var(--font-mono);
+}
+.panelTitleLine {
+  margin-top: 2px;
+  width: 220px;
+  height: 1px;
+  background-color: rgb(0, 204, 255);
+  transform: scaleY(0.3);
+ 
+}
+
+.panelLinks {
+  display: grid;
+  gap: px;
+  margin-top: 12px;
+ text-align: center;
+
+}
+
+.panelLink {
+  padding: 10px;
+  border-radius: 14px;
+}
+.panelLink:hover {
+  color: rgb(0, 204, 255);
+  background: rgba(255,255,255,0.06); 
+}
+
+.panelCta {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  padding: 12px;
+  border-radius: 14px;
+  color: rgb(2, 6, 23);
+ background: rgb(0, 204, 255);
+ font-weight: 700;
+}

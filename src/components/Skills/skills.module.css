@@ -1,0 +1,115 @@
+/* src/components/skills.module.css */
+
+.head {
+  margin-bottom: 18px;
+}
+
+.skillsTitle {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.skillsTitleSpan {
+  color: rgba(var(--accent-rgb), 1);
+}
+
+.skillsSubtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.card {
+  padding: 18px;
+  border-radius: var(--radius);
+}
+
+.cardTitle {
+  font-weight: 650;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 12px;
+  letter-spacing: 0.01em;
+}
+
+.list {
+  display: grid;
+  gap: 12px;
+}
+
+.row {
+  display: grid;
+  gap: 8px;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.name {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+}
+
+.icon {
+  color: rgba(var(--accent-rgb), 1);
+  opacity: 0.95;
+  flex: 0 0 auto;
+}
+
+.value {
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 12px;
+}
+
+.track {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--accent-rgb), 0.85),
+    rgba(var(--accent-rgb), 0.22)
+  );
+  box-shadow: 0 0 22px rgba(var(--accent-rgb), 0.22);
+  transform: translateZ(0);
+  animation: grow 900ms ease forwards;
+  transform-origin: left;
+}
+
+@keyframes grow {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--w, 80%);
+  }
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}

@@ -1,0 +1,27 @@
+/* src/styles/footer.module.css */
+.footer {
+  position: relative;
+  z-index: 1;
+  padding: 26px 0 34px;
+}
+
+.inner {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding-top: 18px;
+}
+
+.brand {
+  font-weight: 700;
+  color: rgba(255,255,255,0.88);
+}
+.dot {
+  color: rgba(var(--accent-rgb), 1);
+}
+.copy {
+  color: rgba(255,255,255,0.52);
+  font-size: 12px;
+}

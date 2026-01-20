@@ -1,0 +1,176 @@
+/* src/styles/orbit.module.css */
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+ 
+
+  --mx: 0;
+  --my: 0;
+
+  /* ✅ responsive scaling */
+  --orbitScale: 1;
+  transform: scale(var(--orbitScale));
+  transform-origin: center;
+}
+
+/* subtle interactive parallax */
+.stage > * {
+  transform: translate3d(calc(var(--mx) * 10px), calc(var(--my) * 10px), 0);
+  transition: transform 120ms ease;
+}
+
+.center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transform: translate3d(calc(var(--mx) * 14px), calc(var(--my) * 14px), 0);
+}
+
+/* 3D-ish orb */
+.orb {
+  width: 205px;
+  height: 205px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,0.30), transparent 30%),
+    radial-gradient(circle at 50% 55%, rgba(var(--accent-rgb), 0.34), rgba(var(--accent-rgb), 0.12) 45%, transparent 72%),
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,0.0), rgba(0,0,0,0.58) 78%);
+  box-shadow:
+    0 0 0 1px rgba(var(--accent-rgb), 0.14),
+    0 40px 120px rgba(var(--accent-rgb), 0.10),
+    0 24px 80px rgba(0,0,0,0.55);
+  animation: breathe 3.9s ease-in-out infinite;
+}
+
+/* rings (very subtle) */
+.ring,
+.ring2 {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--accent-rgb), 0.12);
+  box-shadow: 0 0 28px rgba(var(--accent-rgb), 0.06);
+  animation: ringPulse 3.9s ease-in-out infinite;
+  opacity: 0.72;
+}
+
+.ring {
+  width: 268px;
+  height: 268px;
+}
+
+.ring2 {
+  width: 340px;
+  height: 340px;
+  border-color: rgba(255,255,255,0.08);
+  opacity: 0.52;
+  animation-delay: 0.25s;
+}
+
+@keyframes breathe {
+  0%   { transform: scale(0.93); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(0.93); }
+}
+
+@keyframes ringPulse {
+  0%   { transform: scale(0.97); opacity: 0.48; }
+  50%  { transform: scale(1.02); opacity: 0.75; }
+  100% { transform: scale(0.97); opacity: 0.52; }
+}
+
+/* orbit: slow + smooth */
+.orbit {
+  position: relative;
+  width: min(420px, 92%);
+  height: min(420px, 92%);
+  animation: orbitSpin 70s linear infinite;
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* items closer to core */
+.orbitItem {
+  position: absolute;
+  left: 45%;
+  top: 45%;
+  transform:
+    rotate(var(--angle))
+    translateX(164px)
+    rotate(calc(var(--angle) * -1));
+  transform-origin: center;
+}
+
+/* icon style: minimal vertical bob, not much */
+.iconCard {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+
+  background: rgba(0, 0, 0, 0.10);
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 18px 55px rgba(0,0,0,0.26);
+  backdrop-filter: blur(10px);
+
+  animation: bob 4.6s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes bob {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}
+
+.iconSvg {
+  width: 28px;
+  height: 28px;
+  opacity: 0.98;
+}
+
+/* ✅ Tablet and smaller: scale down the whole orbit */
+@media (max-width: 768px) {
+  .stage {
+    --orbitScale: 0.88;
+  }
+}
+
+/* ✅ Small phones: scale down more */
+@media (max-width: 420px) {
+  .stage {
+    --orbitScale: 0.78;
+  }
+
+  /* jei labai mažam ekrane kažkas dar spaudžiasi, mažinam min-height */
+  .stage {
+    min-height: 280px;
+  }
+}
+
+/* Desktop tuning */
+@media (min-width: 900px) {
+  .stage {
+    --orbitScale: 1;
+  }
+
+  .orb { width: 235px; height: 235px; }
+  .ring { width: 310px; height: 310px; }
+  .ring2 { width: 395px; height: 395px; }
+
+  .orbitItem {
+    transform: rotate(var(--angle)) translateX(190px)
+      rotate(calc(var(--angle) * -1));
+  }
+
+  .iconCard { width: 56px; height: 56px; }
+  .iconSvg { width: 30px; height: 30px; }
+}

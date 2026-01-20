@@ -1,0 +1,240 @@
+/* src/styles/hero.module.css */
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  align-items: center;
+   transform: translateY(-40px);
+}
+
+.left { 
+  padding: 6px 0;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.22);
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(var(--accent-rgb), 1);
+  box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.65);
+}
+
+.h1 {
+  margin: 18px 0 0;
+  font-size: 38px;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  
+}
+
+.accent {
+  color: white;
+}
+.accentProf {
+  font-size: 25px;
+  font-weight: 400;
+  font-family: var(--font-mono);
+color: rgba(var(--accent-rgb), 1);
+}
+
+.lead {
+  margin: 16px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.74);
+  max-width: 54ch;
+}
+
+.sub {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.56);
+}
+.markSub {
+color: rgba(var(--accent-rgb), 1);
+} 
+.actions {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 14px;
+  font-size: 13px;
+ 
+
+}
+
+.primary {
+  color: black;
+  background: rgba(var(--accent-rgb));
+  font-weight: 700;
+  font-size: 16px;
+}
+.primary:hover {
+  color: rgba(var(--accent-rgb), 1);
+  background-color: transparent;
+   border: none;
+  outline: 1px solid rgba(var(--accent-rgb), 0.6);
+  outline-offset: -1px;
+}
+
+.secondary {
+   font-weight: 700;
+  font-size: 16px;
+  color: rgba(var(--accent-rgb), 1);
+  border: none;
+  outline: 1px solid rgba(var(--accent-rgb), 0.6);
+  outline-offset: -1px;
+}
+.secondary:hover {
+ 
+  background: rgba(var(--accent-rgb), 1);
+  color: b;
+}
+
+/* ✅ RIGHT: fully transparent container (NO square) */
+.right {
+  height: 360px;
+  position: relative;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+
+  overflow: visible; /* important */
+}
+
+/* remove any inherited pseudo elements (safety) */
+.right::before,
+.right::after {
+  content: none !important;
+}
+
+/* Scroll mouse indicator (bottom center) */
+.scrollMouse {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  width: 34px;
+  height: 54px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.10);
+  backdrop-filter: blur(10px);
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10px;
+  text-decoration: none;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.35);
+  animation: mouseFloat 2.2s ease-in-out infinite;
+}
+
+.mouseWheel {
+  width: 4px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(var(--accent-rgb), 1);
+  box-shadow: 0 0 14px rgba(var(--accent-rgb), 0.6);
+  animation: wheelMove 1.4s ease-in-out infinite;
+}
+
+/* whole mouse moves slightly up/down */
+@keyframes mouseFloat {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.85; }
+  50%      { transform: translateX(-50%) translateY(-6px); opacity: 1; }
+}
+
+/* wheel moves inside */
+
+
+
+@media (min-width: 900px) {
+  .hero {
+    padding: 52px 0 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 26px;
+  }
+
+  .h1 {
+    font-size: 58px;
+  }
+
+  .lead {
+    font-size: 18px;
+  }
+
+  .right {
+    height: 470px;
+  }
+}
+@media (max-width: 900px) {
+  .hero {
+    align-items: flex-start;
+    padding-top: 80px; /* kad nebūtų po navbaru */
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "orbit"
+      "text";
+    gap: 32px;
+  }
+
+  .right {
+    grid-area: orbit;
+    height:300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .left {
+    grid-area: text;
+  
+    align-items: center;
+    margin-top: 12px;
+  }
+
+  .scrollMouse {
+    bottom: 5px;
+    transform: translateX(-50%) scale(0.9);
+    opacity: 0.8;
+  }
+ 
+}

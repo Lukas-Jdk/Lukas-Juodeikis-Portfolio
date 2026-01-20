@@ -1,0 +1,47 @@
+/* src/styles/layout.css */
+.page {
+  min-height: 100vh;
+  position: relative;
+  overflow: visible;
+   padding-top: 56px;
+}
+
+.container {
+  max-width: var(--max);
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.section {
+  position: relative;
+  padding: 70px 0;
+}
+
+@media (min-width: 900px) {
+  .section {
+    padding: 92px 0;
+  }
+}
+
+
+
+
+
+@media (min-width: 900px) {
+  .h2 {
+    font-size: 40px;
+  }
+}
+
+/* Glass card helper */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.glow {
+  box-shadow: var(--shadow), var(--glow);
+}

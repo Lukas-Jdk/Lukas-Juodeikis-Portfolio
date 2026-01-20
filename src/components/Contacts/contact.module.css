@@ -1,0 +1,88 @@
+/* src/styles/contact.module.css */
+.head {
+  margin-bottom: 18px;
+}
+
+.wrap {
+  padding: 18px;
+  border-radius: var(--radius);
+  display: grid;
+  gap: 14px;
+}
+
+.left {
+  padding: 6px 4px;
+}
+
+.label {
+  color: rgba(255,255,255,0.55);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.email {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: 650;
+  color: rgba(var(--accent-rgb), 1);
+}
+
+.note {
+  margin-top: 10px;
+  color: rgba(255,255,255,0.60);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.form {
+  display: grid;
+  gap: 10px;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.18);
+  color: rgba(255,255,255,0.86);
+  padding: 12px 12px;
+  outline: none;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: rgba(var(--accent-rgb), 0.30);
+  background: rgba(0,0,0,0.24);
+}
+
+.button {
+  border-radius: 14px;
+  border: 1px solid rgba(var(--accent-rgb), 0.26);
+  background: rgba(var(--accent-rgb), 0.16);
+  color: rgba(255,255,255,0.86);
+  padding: 12px 12px;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease;
+  box-shadow: var(--glow);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  background: rgba(var(--accent-rgb), 0.20);
+}
+
+@media (min-width: 900px) {
+  .wrap {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 18px;
+    padding: 22px;
+  }
+}
