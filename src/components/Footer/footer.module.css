@@ -9,19 +9,23 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   border-top: 1px solid rgba(255,255,255,0.10);
   padding-top: 18px;
+  font-family: var(--font-mono);
 }
 
 .brand {
+   font-size: 1.2rem;
   font-weight: 700;
-  color: rgba(255,255,255,0.88);
+   font-family: var(--font-mono);
+  color: rgba(255,255,255,0.92);
 }
 .dot {
   color: rgba(var(--accent-rgb), 1);
 }
 .copy {
+ 
   color: rgba(255,255,255,0.52);
   font-size: 12px;
 }

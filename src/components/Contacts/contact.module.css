@@ -156,7 +156,7 @@
 /* MOBILE */
 @media (max-width: 899px) {
   .title {
-    font-size: 36px;
+    font-size: 16px;
   }
   .card {
     padding: 16px;
