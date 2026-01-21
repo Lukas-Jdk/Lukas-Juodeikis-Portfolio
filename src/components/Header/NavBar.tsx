@@ -1,4 +1,4 @@
-// src/components/NavBar.tsx
+// src/components/Header/NavBar.tsx
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -10,9 +10,21 @@ const LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
+const LANGS = [
+  { code: "EN", flag: "🇬🇧" },
+  { code: "LT", flag: "🇱🇹" },
+] as const;
+
+type Lang = (typeof LANGS)[number]["code"];
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
+
+  // ✅ Language UI (kol kas tik UI)
+  const [lang, setLang] = useState<Lang>("EN");
+  const toggleLang = () => setLang((l) => (l === "EN" ? "LT" : "EN"));
+  const currentLang = LANGS.find((x) => x.code === lang);
 
   // Close on outside click + ESC
   useEffect(() => {
@@ -61,9 +73,16 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <a className={styles.cta} href="#contact">
-            Language
-          </a>
+          {/*  Language toggle */}
+          <button
+            type="button"
+            className={styles.langBtn}
+            onClick={toggleLang}
+            aria-label="Toggle language"
+          >
+            <span className={styles.langFlag}>{currentLang?.flag}</span>
+            <span className={styles.langCode}>{lang}</span>
+          </button>
 
           <button
             type="button"
@@ -88,7 +107,6 @@ export default function Navbar() {
                 Lj<span className={styles.dot}>D</span>
                 <div className={styles.panelTitleLine}></div>
               </div>
-             
             </div>
 
             <div className={styles.panelLinks}>

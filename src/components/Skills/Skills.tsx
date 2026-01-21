@@ -55,12 +55,12 @@ export default function Skills() {
     <section id="skills" className="section">
       <div className="container">
         <div className={styles.head}>
-          <div className={styles.skillsTitle}>
+          <h2 className={styles.skillsTitle}>
             My <span className={styles.skillsTitleSpan}>Skills</span>
-          </div>
-          <div className={styles.skillsSubtitle}>
+          </h2>
+          <p className={styles.skillsSubtitle}>
             Tech stack and what I use daily.
-          </div>
+          </p>
         </div>
 
         <div className={styles.grid}>

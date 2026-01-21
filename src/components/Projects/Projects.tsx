@@ -1,3 +1,4 @@
+// src/components/Projects/Projects.tsx
 "use client";
 
 import { useMemo, useState } from "react";
@@ -14,6 +15,12 @@ type Project = {
   level: Level;
   tags: string[];
   image: string;
+
+  //  CTA / Status
+  demoUrl?: string;      // live demo / site
+  caseStudyUrl?: string; // case study page (optional)
+  repoUrl?: string;      // github (optional)
+  status?: "live" | "soon";
 };
 
 const PROJECTS: Project[] = [
@@ -29,6 +36,9 @@ const PROJECTS: Project[] = [
     tags: ["HTML", "CSS", "SEO"],
     image:
       "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1600&q=70",
+    status: "live",
+    demoUrl: "https://example.com", 
+    repoUrl: "https://github.com/your-repo", // <-- optional
   },
   {
     title: "Business Website",
@@ -39,6 +49,8 @@ const PROJECTS: Project[] = [
     tags: ["Next.js", "UX", "Performance"],
     image:
       "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=70",
+    status: "live",
+    demoUrl: "https://example.com", 
   },
   {
     title: "E-Commerce Platform",
@@ -49,6 +61,8 @@ const PROJECTS: Project[] = [
     tags: ["Next.js", "Stripe", "PostgreSQL"],
     image:
       "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1600&q=70",
+    status: "soon", 
+    // demoUrl: "", 
   },
 
   // -----------------
@@ -63,6 +77,8 @@ const PROJECTS: Project[] = [
     tags: ["Chat UI", "Flows", "UX"],
     image:
       "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=70",
+    status: "live",
+    demoUrl: "https://example.com", 
   },
   {
     title: "Support Assistant Bot",
@@ -73,6 +89,8 @@ const PROJECTS: Project[] = [
     tags: ["React", "TypeScript", "API-ready"],
     image:
       "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=70",
+    status: "soon",
+    // demoUrl: "", 
   },
   {
     title: "AI Customer Support Bot",
@@ -83,6 +101,8 @@ const PROJECTS: Project[] = [
     tags: ["LLM", "NLP", "Automation"],
     image:
       "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=70",
+    status: "soon",
+    // demoUrl: "", 
   },
 
   // -----------------
@@ -97,6 +117,8 @@ const PROJECTS: Project[] = [
     tags: ["CRUD", "UI", "Fast"],
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=70",
+    status: "soon",
+    // demoUrl: "", 
   },
   {
     title: "Full-Stack Platform",
@@ -107,6 +129,8 @@ const PROJECTS: Project[] = [
     tags: ["Full-Stack", "APIs", "DB"],
     image:
       "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=70",
+    status: "soon", 
+    // demoUrl: "", 
   },
 ];
 
@@ -116,7 +140,7 @@ const CATEGORIES: Exclude<Category, "All">[] = ["Websites", "Chatbots", "Applica
 export default function Projects() {
   const [active, setActive] = useState<Category>("All");
 
-  // Grouped data, but respects selected filter
+  // Grouped data
   const grouped = useMemo(() => {
     const wanted = active === "All" ? CATEGORIES : ([active] as Exclude<Category, "All">[]);
     return wanted
@@ -186,6 +210,46 @@ export default function Projects() {
                             {t}
                           </span>
                         ))}
+                      </div>
+
+                      {/* ✅ CTA ROW */}
+                      <div className={styles.ctaRow}>
+                        {p.demoUrl ? (
+                          <a
+                            className={styles.ctaPrimary}
+                            href={p.demoUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            View Demo
+                          </a>
+                        ) : (
+                          <span className={`${styles.ctaPrimary} ${styles.ctaDisabled}`}>
+                            Coming soon
+                          </span>
+                        )}
+
+                        {p.caseStudyUrl && (
+                          <a
+                            className={styles.ctaSecondary}
+                            href={p.caseStudyUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Case Study
+                          </a>
+                        )}
+
+                        {p.repoUrl && (
+                          <a
+                            className={styles.ctaGhost}
+                            href={p.repoUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Code
+                          </a>
+                        )}
                       </div>
                     </div>
                   </article>

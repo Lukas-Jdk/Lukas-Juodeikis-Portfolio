@@ -121,7 +121,7 @@ color: rgba(var(--accent-rgb), 1);
   color: b;
 }
 
-/* ✅ RIGHT: fully transparent container (NO square) */
+/*  RIGHT: fully transparent container  */
 .right {
   height: 360px;
   position: relative;
@@ -134,13 +134,13 @@ color: rgba(var(--accent-rgb), 1);
   overflow: visible; /* important */
 }
 
-/* remove any inherited pseudo elements (safety) */
+
 .right::before,
 .right::after {
   content: none !important;
 }
 
-/* Scroll mouse indicator (bottom center) */
+/* Scroll mouse  */
 .scrollMouse {
   position: absolute;
   left: 50%;
@@ -170,14 +170,11 @@ color: rgba(var(--accent-rgb), 1);
   animation: wheelMove 1.4s ease-in-out infinite;
 }
 
-/* whole mouse moves slightly up/down */
+/* mouse moves slightly up/down */
 @keyframes mouseFloat {
   0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.85; }
   50%      { transform: translateX(-50%) translateY(-6px); opacity: 1; }
 }
-
-/* wheel moves inside */
-
 
 
 @media (min-width: 900px) {
@@ -205,7 +202,7 @@ color: rgba(var(--accent-rgb), 1);
 @media (max-width: 900px) {
   .hero {
     align-items: flex-start;
-    padding-top: 80px; /* kad nebūtų po navbaru */
+    padding-top: 80px; 
   }
 
   .grid {

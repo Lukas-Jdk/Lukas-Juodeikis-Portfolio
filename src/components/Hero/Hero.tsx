@@ -38,7 +38,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* IMPORTANT: no card/glow classes here */}
+   
           <div className={styles.right}>
             <OrbitShowcase />
           </div>

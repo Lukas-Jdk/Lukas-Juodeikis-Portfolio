@@ -71,3 +71,18 @@
   inset: 0;
   background: radial-gradient(1200px 600px at 50% 10%, transparent 35%, rgba(0,0,0,0.55) 80%);
 }
+
+/* ✅ PERFORMANCE HINTS  */
+.bgLines,
+.bgParticles {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* ✅ ACCESSIBILITY / LIGHTHOUSE BONUS  */
+@media (prefers-reduced-motion: reduce) {
+  .bgLines,
+  .bgParticles {
+    animation: none !important;
+  }
+}

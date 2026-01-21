@@ -13,7 +13,7 @@ export default function Contact() {
     const subject = (form.elements.namedItem("subject") as HTMLInputElement).value.trim();
     const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value.trim();
 
-    // (Optional) jei nori – minimalūs check'ai
+    
     if (!message) return;
 
     const to = "lukas.juodeikis.dev@gmail.com";
@@ -31,9 +31,9 @@ export default function Contact() {
   return (
     <section id="contact" className={styles.section}>
       <div className="container">
-        <div className={styles.heading}>
+        <h2 className={styles.heading}>
           My <span className={styles.headingSpan}>Contacts</span>
-        </div>
+        </h2>
 
         <div className={styles.grid}>
           {/* LEFT */}
@@ -93,7 +93,7 @@ export default function Contact() {
           {/* RIGHT (FORM CARD) */}
           <div className={`${styles.card} card glow`}>
             <form className={styles.form} onSubmit={handleSubmit}>
-              {/* SUBJECT (vietoj Name) */}
+              {/* SUBJECT */}
               <label className={styles.label}>
                 Subject
                 <input
@@ -104,7 +104,7 @@ export default function Contact() {
                 />
               </label>
 
-              {/* EMAIL (paliekam, bet nenaudojam body) */}
+              {/* EMAIL*/}
               <label className={styles.label}>
                 Email
                 <input
@@ -130,9 +130,6 @@ export default function Contact() {
                 Send Message
               </button>
             </form>
-
-            {/* jei nori mažo paaiškinimo po forma (nebūtina) */}
-            {/* <div className={styles.noteSmall}>Opens Gmail draft — you click Send.</div> */}
           </div>
         </div>
       </div>
