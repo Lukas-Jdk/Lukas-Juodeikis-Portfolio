@@ -19,10 +19,10 @@ const data: { title: string; items: Skill[] }[] = [
     items: [
       { name: "HTML", value: 90, Icon: FaHtml5, color: "#E34F26" },
       { name: "CSS", value: 90, Icon: FaCss3Alt, color: "#1572B6" },
-      { name: "JavaScript", value: 80, Icon: FaJs, color: "#F7DF1E" },
-      { name: "TypeScript", value: 78, Icon: SiTypescript, color: "#3178C6" },
-      { name: "React", value: 78, Icon: FaReact, color: "#61DAFB" },
-      { name: "Next.js", value: 78, Icon: SiNextdotjs, color: "#FFFFFF" },
+      { name: "JavaScript", value: 82, Icon: FaJs, color: "#F7DF1E" },
+      { name: "TypeScript", value: 81, Icon: SiTypescript, color: "#3178C6" },
+      { name: "React", value: 83, Icon: FaReact, color: "#61DAFB" },
+      { name: "Next.js", value: 80, Icon: SiNextdotjs, color: "#FFFFFF" },
     ],
   },
   {
@@ -35,16 +35,16 @@ const data: { title: string; items: Skill[] }[] = [
   {
     title: "Databases",
     items: [
-      { name: "PostgreSQL", value: 73, Icon: SiPostgresql, color: "#336791" },
-      { name: "MongoDB", value: 70, Icon: SiMongodb, color: "#47A248" },
-      { name: "Prisma", value: 72, Icon: SiPrisma, color: "#00B5A5" },
+      { name: "PostgreSQL", value: 75, Icon: SiPostgresql, color: "#336791" },
+      { name: "MongoDB", value: 78, Icon: SiMongodb, color: "#47A248" },
+      { name: "Prisma", value: 75, Icon: SiPrisma, color: "#00B5A5" },
     ],
   },
   {
     title: "APIs & Tools",
     items: [
       { name: "REST APIs", value: 76, Icon: FiLink, color: "#00CCFF" },
-      { name: "Git", value: 80, Icon: FaGitAlt, color: "#F05032" },
+      { name: "Git", value: 85, Icon: FaGitAlt, color: "#F05032" },
       
     ],
   },
