@@ -73,16 +73,8 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/*  Language toggle */}
-          <button
-            type="button"
-            className={styles.langBtn}
-            onClick={toggleLang}
-            aria-label="Toggle language"
-          >
-            <span className={styles.langFlag}>{currentLang?.flag}</span>
-            <span className={styles.langCode}>{lang}</span>
-          </button>
+        
+        
 
           <button
             type="button"

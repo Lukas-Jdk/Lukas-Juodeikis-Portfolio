@@ -1,4 +1,5 @@
 // src/components/Contact.tsx
+// src/components/Contact.tsx
 "use client";
 
 import styles from "./contact.module.css";
@@ -11,28 +12,49 @@ export default function Contact() {
     const form = e.currentTarget;
 
     const subject = (form.elements.namedItem("subject") as HTMLInputElement).value.trim();
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim();
     const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value.trim();
 
-    
     if (!message) return;
 
-    const to = "lukas.juodeikis.dev@gmail.com";
+    const to = "lukass.juodeikis.dev@gmail.com";
 
-    // Gmail compose: To + Subject + Body
-    const url =
+    const body = [
+      message,
+      "",
+      "----",
+      `From: ${email || "not provided"}`,
+    ].join("\n");
+
+    // ✅ Gmail compose
+    const gmailUrl =
       "https://mail.google.com/mail/?view=cm&fs=1" +
       `&to=${encodeURIComponent(to)}` +
-      `&su=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(message)}`;
+      `&su=${encodeURIComponent(subject || "Message from portfolio")}` +
+      `&body=${encodeURIComponent(body)}`;
 
-    window.open(url, "_blank", "noopener,noreferrer");
+    // ✅ Fallback: default mail app
+    const mailtoUrl =
+      `mailto:${encodeURIComponent(to)}` +
+      `?subject=${encodeURIComponent(subject || "Message from portfolio")}` +
+      `&body=${encodeURIComponent(body)}`;
+
+    const win = window.open(gmailUrl, "_blank", "noopener,noreferrer");
+
+    // jei popup blocked
+    if (!win) {
+      window.location.href = mailtoUrl;
+    }
+
+    // optional UX: reset form
+    form.reset();
   };
 
   return (
     <section id="contact" className={styles.section}>
       <div className="container">
         <h2 className={styles.heading}>
-          My <span className={styles.headingSpan}>Contacts</span>
+          My <span>Contacts</span>
         </h2>
 
         <div className={styles.grid}>
@@ -44,7 +66,7 @@ export default function Contact() {
 
             <p className={styles.text}>
               I&apos;m currently open to new opportunities and collaborations.
-              Whether you have a question I&apos;ll try my best to get back to you!
+              Whether you have a question, I&apos;ll try my best to get back to you!
             </p>
 
             <div className={styles.socials} aria-label="Social links">
@@ -80,9 +102,7 @@ export default function Contact() {
 
               <a
                 className={styles.iconBtn}
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=lukas.juodeikis.dev@gmail.com"
-                target="_blank"
-                rel="noreferrer"
+                href="mailto:lukass.juodeikis.dev@gmail.com"
                 aria-label="Email"
               >
                 <Mail size={24} />
@@ -104,7 +124,7 @@ export default function Contact() {
                 />
               </label>
 
-              {/* EMAIL*/}
+              {/* EMAIL */}
               <label className={styles.label}>
                 Email
                 <input
@@ -123,6 +143,7 @@ export default function Contact() {
                   name="message"
                   className={styles.textarea}
                   placeholder="Hello, I'd like to talk about..."
+                  required
                 />
               </label>
 
