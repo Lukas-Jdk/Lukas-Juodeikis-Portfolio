@@ -65,36 +65,6 @@
   color: rgba(255,255,255,0.88);
 }
 
-/* NEW: Language button */
-.langBtn {
-  font-size: 13px;
-  padding: 10px 14px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
-  color: rgba(255,255,255,0.88);
-  display: inline-flex;
-  gap: 10px;
-  align-items: center;
-  cursor: pointer;
-}
-
-.langBtn:hover {
-  border-color: rgba(var(--accent-rgb), 0.25);
-  color: rgba(var(--accent-rgb), 1);
-}
-
-.langFlag {
-  font-size: 16px;
-  line-height: 1;
-}
-
-.langCode {
-  font-family: var(--font-mono);
-  font-weight: 800;
-  letter-spacing: 0.08em;
-}
-
 /* ===== BURGER ===== */
 .burger {
   display: none;

@@ -9,20 +9,9 @@ const LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-const LANGS = [
-  { code: "EN", flag: "🇬🇧" },
-  { code: "LT", flag: "🇱🇹" },
-] as const;
-
-type Lang = (typeof LANGS)[number]["code"];
-
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
-
-  // Language UI (kol kas tik UI)
-  const [lang, setLang] = useState<Lang>("EN");
-  const current = LANGS.find((x) => x.code === lang);
 
   // Close on outside click + ESC
   useEffect(() => {
@@ -68,17 +57,6 @@ export default function Navbar() {
               </a>
             ))}
           </nav>
-
-          {/* Language toggle */}
-          <button
-            type="button"
-            className={styles.langBtn}
-            onClick={() => setLang((l) => (l === "EN" ? "LT" : "EN"))}
-            aria-label="Toggle language"
-          >
-            <span className={styles.langFlag}>{current?.flag}</span>
-            <span className={styles.langCode}>{lang}</span>
-          </button>
 
           <button
             type="button"
