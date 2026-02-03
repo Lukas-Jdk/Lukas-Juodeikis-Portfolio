@@ -6,20 +6,21 @@ import styles from "./projects.module.css";
 import Image from "next/image";
 
 type Category = "All" | "Websites" | "Chatbots" | "Applications";
-type Level = "Simple" | "Intermediate" | "Advanced";
+type LinkType = "website" | "demo";
 
 type Project = {
   title: string;
   description: string;
   category: Exclude<Category, "All">;
-  level: Level;
   tags: string[];
   image: string;
 
-  //  CTA / Status
-  demoUrl?: string;      // live demo / site
-  caseStudyUrl?: string; // case study page (optional)
-  repoUrl?: string;      // github (optional)
+  linkUrl?: string;
+  linkType?: LinkType;
+
+  caseStudyUrl?: string;
+  repoUrl?: string;
+
   status?: "live" | "soon";
 };
 
@@ -28,82 +29,69 @@ const PROJECTS: Project[] = [
   // WEBSITES
   // -----------------
   {
-    title: "Landing Page",
+    title: "JoEstetikGlow",
     description:
-      "High-converting landing page with premium UI, responsive layout, and performance-first structure.",
+      "Modern landing page for an aesthetics clinic with fast performance, and seamless redirection to bookings and Messenger.",
     category: "Websites",
-    level: "Simple",
-    tags: ["HTML", "CSS", "SEO"],
-    image:
-      "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1600&q=70",
+    tags: ["Next.js", "CSS", "Performance"],
+    image: "/projects/joestetikglow.webp",
     status: "live",
-    demoUrl: "https://example.com", 
- 
+    linkUrl: "https://joestetiskglow.no/",
+    linkType: "website",
   },
   {
-    title: "Business Website",
+    title: "HeelsByKristi",
     description:
-      "Multi-page business website with reusable sections, smooth navigation, and scalable design system.",
+      "HeelsByKristi is a dance studio platform for class registration and online payments, focused on performance, UX, and secure payments.",
     category: "Websites",
-    level: "Intermediate",
-    tags: ["Next.js", "UX", "Performance"],
-    image:
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=70",
+    tags: ["Next.js", "UX", "Performance", "Stripe"],
+    image: "/projects/heel.webp",
     status: "live",
-    demoUrl: "https://www.heelsbykristi.no", 
+    linkUrl: "https://www.heelsbykristi.no",
+    linkType: "website",
   },
   {
     title: "E-Commerce Platform",
     description:
       "Modern e-commerce solution with real-time inventory, secure payments, and admin workflows.",
     category: "Websites",
-    level: "Advanced",
     tags: ["Next.js", "Stripe", "PostgreSQL"],
-    image:
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1600&q=70",
-    status: "soon", 
-    // demoUrl: "", 
+    image: "/projects/eshop.webp",
+    status: "soon",
   },
 
   // -----------------
   // CHATBOTS
   // -----------------
   {
-    title: "FAQ Chatbot",
+    title: "ChatBots",
     description:
-      "Simple FAQ chatbot with guided flows and clean chat UI for fast customer support.",
+      "4 chatbot demos from FAQ to Sales, showing how guided chat flows turn visitors into structured inquiries.",
     category: "Chatbots",
-    level: "Simple",
-    tags: ["Chat UI", "Flows", "UX"],
-    image:
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=70",
+    tags: ["React", "TypeScript", "i18n", "Chat UI"],
+    image: "/projects/chats.webp",
     status: "live",
-    demoUrl: "https://example.com", 
+    linkUrl: "https://example.com",
+    linkType: "demo",
   },
-  {
-    title: "Support Assistant Bot",
-    description:
-      "Support chatbot concept with chat history, categories, and integrations-ready architecture.",
-    category: "Chatbots",
-    level: "Intermediate",
-    tags: ["React", "TypeScript", "API-ready"],
-    image:
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=70",
-    status: "soon",
-    // demoUrl: "", 
-  },
-  {
-    title: "AI Customer Support Bot",
-    description:
-      "AI-driven customer support bot concept: intent routing, smart replies, and ticket automation.",
-    category: "Chatbots",
-    level: "Advanced",
-    tags: ["LLM", "NLP", "Automation"],
-    image:
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=70",
-    status: "soon",
-    // demoUrl: "", 
-  },
+  // {
+  //   title: "Support Assistant Bot",
+  //   description:
+  //     "Support chatbot concept with chat history, categories, and integrations-ready architecture.",
+  //   category: "Chatbots",
+  //   tags: ["React", "TypeScript", "API-ready"],
+  //   image: "/projects/support-bot.webp",
+  //   status: "soon",
+  // },
+  // {
+  //   title: "AI Customer Support Bot",
+  //   description:
+  //     "AI-driven customer support bot concept: intent routing, smart replies, and ticket automation.",
+  //   category: "Chatbots",
+  //   tags: ["LLM", "NLP", "Automation"],
+  //   image: "/projects/ai-bot.webp",
+  //   status: "soon",
+  // },
 
   // -----------------
   // APPLICATIONS
@@ -113,36 +101,36 @@ const PROJECTS: Project[] = [
     description:
       "Minimal tracker tool with CRUD flows, clean UI, and practical daily-use features.",
     category: "Applications",
-    level: "Simple",
     tags: ["CRUD", "UI", "Fast"],
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=70",
+    image: "/projects/tools.webp",
     status: "soon",
-    // demoUrl: "", 
   },
   {
     title: "Full-Stack Platform",
     description:
       "Advanced full-stack platform concept: auth, APIs, database, roles, and deployment-ready structure.",
     category: "Applications",
-    level: "Advanced",
     tags: ["Full-Stack", "APIs", "DB"],
-    image:
-      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=70",
-    status: "soon", 
-    // demoUrl: "", 
+    image: "/projects/fullstack.webp",
+    status: "soon",
   },
 ];
 
 const FILTERS: Category[] = ["All", "Websites", "Chatbots", "Applications"];
-const CATEGORIES: Exclude<Category, "All">[] = ["Websites", "Chatbots", "Applications"];
+const CATEGORIES: Exclude<Category, "All">[] = [
+  "Websites",
+  "Chatbots",
+  "Applications",
+];
 
 export default function Projects() {
   const [active, setActive] = useState<Category>("All");
 
-  // Grouped data
   const grouped = useMemo(() => {
-    const wanted = active === "All" ? CATEGORIES : ([active] as Exclude<Category, "All">[]);
+    const wanted =
+      active === "All"
+        ? CATEGORIES
+        : ([active] as Exclude<Category, "All">[]);
     return wanted
       .map((cat) => ({
         category: cat,
@@ -162,14 +150,20 @@ export default function Projects() {
             A collection of my work grouped by category.
           </p>
 
-          <div className={styles.filters} role="tablist" aria-label="Projects filter">
+          <div
+            className={styles.filters}
+            role="tablist"
+            aria-label="Projects filter"
+          >
             {FILTERS.map((f) => {
               const isActive = f === active;
               return (
                 <button
                   key={f}
                   type="button"
-                  className={`${styles.filterBtn} ${isActive ? styles.filterActive : ""}`}
+                  className={`${styles.filterBtn} ${
+                    isActive ? styles.filterActive : ""
+                  }`}
                   onClick={() => setActive(f)}
                   aria-pressed={isActive}
                 >
@@ -191,12 +185,11 @@ export default function Projects() {
                     <div className={styles.media}>
                       <Image
                         src={p.image}
-                        alt={p.title}
+                        alt={`${p.title} preview`}
                         fill
                         sizes="(max-width: 900px) 100vw, 33vw"
                         className={styles.image}
                       />
-                      <div className={styles.level}>{p.level}</div>
                       <div className={styles.mediaOverlay} />
                     </div>
 
@@ -212,21 +205,24 @@ export default function Projects() {
                         ))}
                       </div>
 
-                      {/* ✅ CTA ROW */}
                       <div className={styles.ctaRow}>
-                        {p.demoUrl ? (
+                        {p.status === "soon" || !p.linkUrl ? (
+                          <span
+                            className={`${styles.ctaPrimary} ${styles.ctaDisabled}`}
+                          >
+                            Coming soon
+                          </span>
+                        ) : (
                           <a
                             className={styles.ctaPrimary}
-                            href={p.demoUrl}
+                            href={p.linkUrl}
                             target="_blank"
                             rel="noreferrer"
                           >
-                            View Demo
+                            {p.linkType === "website"
+                              ? "View Website"
+                              : "View Demo"}
                           </a>
-                        ) : (
-                          <span className={`${styles.ctaPrimary} ${styles.ctaDisabled}`}>
-                            Coming soon
-                          </span>
                         )}
 
                         {p.caseStudyUrl && (

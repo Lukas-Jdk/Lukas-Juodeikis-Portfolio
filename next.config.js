@@ -2,7 +2,8 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "api.microlink.io" },
+      { protocol: "https", hostname: "images.unsplash.com" }, // jei dar kur liko
     ],
   },
 };

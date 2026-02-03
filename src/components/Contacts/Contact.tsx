@@ -26,14 +26,14 @@ export default function Contact() {
       `From: ${email || "not provided"}`,
     ].join("\n");
 
-    // ✅ Gmail compose
+    //  Gmail compose
     const gmailUrl =
       "https://mail.google.com/mail/?view=cm&fs=1" +
       `&to=${encodeURIComponent(to)}` +
       `&su=${encodeURIComponent(subject || "Message from portfolio")}` +
       `&body=${encodeURIComponent(body)}`;
 
-    // ✅ Fallback: default mail app
+    // Fallback: default mail app
     const mailtoUrl =
       `mailto:${encodeURIComponent(to)}` +
       `?subject=${encodeURIComponent(subject || "Message from portfolio")}` +
@@ -41,7 +41,7 @@ export default function Contact() {
 
     const win = window.open(gmailUrl, "_blank", "noopener,noreferrer");
 
-    // jei popup blocked
+ 
     if (!win) {
       window.location.href = mailtoUrl;
     }

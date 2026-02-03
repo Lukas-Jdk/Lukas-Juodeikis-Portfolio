@@ -21,7 +21,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
 
-  // ✅ Language UI (kol kas tik UI)
+  //  Language UI 
   const [lang, setLang] = useState<Lang>("EN");
   const toggleLang = () => setLang((l) => (l === "EN" ? "LT" : "EN"));
   const currentLang = LANGS.find((x) => x.code === lang);

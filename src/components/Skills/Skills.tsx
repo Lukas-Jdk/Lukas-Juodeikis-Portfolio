@@ -19,8 +19,8 @@ const data: { title: string; items: Skill[] }[] = [
     items: [
       { name: "HTML", value: 90, Icon: FaHtml5, color: "#E34F26" },
       { name: "CSS", value: 90, Icon: FaCss3Alt, color: "#1572B6" },
-      { name: "JavaScript", value: 82, Icon: FaJs, color: "#F7DF1E" },
-      { name: "TypeScript", value: 85, Icon: SiTypescript, color: "#3178C6" },
+      { name: "JavaScript", value: 85, Icon: FaJs, color: "#F7DF1E" },
+      { name: "TypeScript", value: 82, Icon: SiTypescript, color: "#3178C6" },
       { name: "React", value: 83, Icon: FaReact, color: "#61DAFB" },
       { name: "Next.js", value: 80, Icon: SiNextdotjs, color: "#FFFFFF" },
     ],

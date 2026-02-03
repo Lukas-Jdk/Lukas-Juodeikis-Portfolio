@@ -11,7 +11,7 @@
   --mx: 0;
   --my: 0;
 
-  /* ✅ responsive scaling */
+  /* responsive scaling */
   --orbitScale: 1;
   transform: scale(var(--orbitScale));
   transform-origin: center;
@@ -137,20 +137,20 @@
   opacity: 0.98;
 }
 
-/* ✅ Tablet and smaller: scale down the whole orbit */
+
 @media (max-width: 768px) {
   .stage {
     --orbitScale: 0.88;
   }
 }
 
-/* ✅ Small phones: scale down more */
+
 @media (max-width: 420px) {
   .stage {
     --orbitScale: 0.78;
   }
 
-  /* jei labai mažam ekrane kažkas dar spaudžiasi, mažinam min-height */
+
   .stage {
     min-height: 280px;
   }
