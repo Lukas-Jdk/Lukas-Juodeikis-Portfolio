@@ -1,9 +1,22 @@
-// src/components/Skills.tsx
 import styles from "./skills.module.css";
 import type { ComponentType, CSSProperties } from "react";
 
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt } from "react-icons/fa";
-import { SiTypescript, SiNextdotjs, SiExpress, SiPostgresql, SiMongodb, SiPrisma, SiDocker } from "react-icons/si";
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+} from "react-icons/fa";
+import {
+  SiTypescript,
+  SiNextdotjs,
+  SiExpress,
+  SiPostgresql,
+  SiMongodb,
+  SiPrisma,
+} from "react-icons/si";
 import { FiLink } from "react-icons/fi";
 
 type Skill = {
@@ -19,8 +32,8 @@ const data: { title: string; items: Skill[] }[] = [
     items: [
       { name: "HTML", value: 90, Icon: FaHtml5, color: "#E34F26" },
       { name: "CSS", value: 90, Icon: FaCss3Alt, color: "#1572B6" },
-      { name: "JavaScript", value: 85, Icon: FaJs, color: "#F7DF1E" },
-      { name: "TypeScript", value: 82, Icon: SiTypescript, color: "#3178C6" },
+      { name: "JavaScript", value: 82, Icon: FaJs, color: "#F7DF1E" },
+      { name: "TypeScript", value: 85, Icon: SiTypescript, color: "#3178C6" },
       { name: "React", value: 83, Icon: FaReact, color: "#61DAFB" },
       { name: "Next.js", value: 80, Icon: SiNextdotjs, color: "#FFFFFF" },
     ],
@@ -45,7 +58,6 @@ const data: { title: string; items: Skill[] }[] = [
     items: [
       { name: "REST APIs", value: 76, Icon: FiLink, color: "#00CCFF" },
       { name: "Git", value: 85, Icon: FaGitAlt, color: "#F05032" },
-      
     ],
   },
 ];

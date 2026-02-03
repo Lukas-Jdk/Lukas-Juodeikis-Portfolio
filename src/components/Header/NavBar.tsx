@@ -1,4 +1,3 @@
-// src/components/Header/NavBar.tsx
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -21,10 +20,9 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
 
-  //  Language UI 
+  // Language UI (kol kas tik UI)
   const [lang, setLang] = useState<Lang>("EN");
-  const toggleLang = () => setLang((l) => (l === "EN" ? "LT" : "EN"));
-  const currentLang = LANGS.find((x) => x.code === lang);
+  const current = LANGS.find((x) => x.code === lang);
 
   // Close on outside click + ESC
   useEffect(() => {
@@ -57,9 +55,7 @@ export default function Navbar() {
 
   return (
     <header className={styles.header}>
-      {/* FULL WIDTH BAR */}
       <div className={styles.bar}>
-        {/* MAX WIDTH INNER */}
         <div className={styles.inner}>
           <a className={styles.brand} href="#top">
             Lj<span className={styles.dot}>D</span>
@@ -73,8 +69,16 @@ export default function Navbar() {
             ))}
           </nav>
 
-        
-        
+          {/* Language toggle */}
+          <button
+            type="button"
+            className={styles.langBtn}
+            onClick={() => setLang((l) => (l === "EN" ? "LT" : "EN"))}
+            aria-label="Toggle language"
+          >
+            <span className={styles.langFlag}>{current?.flag}</span>
+            <span className={styles.langCode}>{lang}</span>
+          </button>
 
           <button
             type="button"
@@ -90,7 +94,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MOBILE OVERLAY */}
       {open && (
         <div className={styles.overlay}>
           <div ref={panelRef} className={styles.panel}>

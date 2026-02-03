@@ -71,7 +71,7 @@ const PROJECTS: Project[] = [
     tags: ["React", "TypeScript", "i18n", "Chat UI"],
     image: "/projects/chats.webp",
     status: "live",
-    linkUrl: "https://example.com",
+    linkUrl: "https://chat-bots-psi.vercel.app/",
     linkType: "demo",
   },
   // {
