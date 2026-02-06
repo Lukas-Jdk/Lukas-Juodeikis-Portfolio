@@ -266,3 +266,21 @@
     font-size: 36px;
   }
 }
+
+/* Filters responsive */
+@media (max-width: 600px) {
+  .filters {
+    width: 100%;
+    max-width: 100%;
+    display: flex;              /* vietoj inline-flex */
+    justify-content: center;
+    flex-wrap: wrap;            /* leidžia persikelti į kitą eilę */
+    gap: 10px;                  /* mažesnis tarpas */
+    padding: 8px;               /* mažiau padding */
+  }
+
+  .filterBtn {
+    font-size: 13px;
+    padding: 9px 14px;
+  }
+}
